@@ -8,7 +8,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
 api = Api(app)
 db = SQLAlchemy(app)
 
-
+#SQL Database
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(25), unique=True, nullable=False)
@@ -22,6 +22,7 @@ class User(db.Model):
     def __repr__(self):
         return f"{self.username} - {self.screenname}"
 
+#GET list of developers from database
 @app.route('/devs')
 def get_devs():
     devs = User.query.all()
@@ -32,6 +33,7 @@ def get_devs():
         output.append(dev_data)
     return {"devs": output}
 
+#GET specific developer from database
 @app.route('/devs/<id>')
 def get_dev(id):
     dev = User.query.get_or_404(id)
