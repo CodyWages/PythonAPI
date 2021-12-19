@@ -13,11 +13,6 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(25), unique=True, nullable=False)
     screenname = db.Column(db.String(50))
-
-    def __init__(self, id, username, screenname):
-        self.id = id
-        self.username = username
-        self.screenname = screenname
         
     def __repr__(self):
         return f"{self.username} - {self.screenname}"
