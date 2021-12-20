@@ -51,7 +51,7 @@ def get_devs():
 @app.route('/devs/<id>')
 def get_dev(id):
     dev = Developer.query.get_or_404(id)
-    return {"name": dev.username, "description": dev.screenname}
+    return {"username": dev.username, "screenname": dev.screenname}
 
 #Run Server
 if __name__ == '__main__':
