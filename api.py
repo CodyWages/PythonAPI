@@ -31,7 +31,6 @@ def add_devs():
 @app.route('/devs')
 def get_devs():
     devs = Developer.query.all()
-
     output = []
     for dev in devs:
         dev_data = {'id': dev.id, 'username': dev.username, 'screenname': dev.screenname}
