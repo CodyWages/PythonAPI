@@ -22,7 +22,6 @@ class Developer(db.Model):
         self.screenname = screenname
         logging.info('Created Developer: {} - {}'.format(self.username, self.screenname))
         
-
 #POST New Dev Info
 @app.route('/devs', methods=['POST'])
 def add_devs():
